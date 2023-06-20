@@ -32,7 +32,7 @@ const AddFilm = ({ addFilm }) => {
         <div className="add-film-container">
             <form className="add-film-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                     <input
                         type="text"
                         id="name"
@@ -41,7 +41,7 @@ const AddFilm = ({ addFilm }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="image">Image:</label>
+                    <label htmlFor="image">Image:</label>
                     <input
                         type="text"
                         id="image"
@@ -50,7 +50,7 @@ const AddFilm = ({ addFilm }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="year">Year:</label>
+                    <label htmlFor="year">Year:</label>
                     <input
                         type="text"
                         id="year"
@@ -59,7 +59,7 @@ const AddFilm = ({ addFilm }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="director">Director:</label>
+                    <label htmlFor="director">Director:</label>
                     <input
                         type="text"
                         id="director"
@@ -68,7 +68,7 @@ const AddFilm = ({ addFilm }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label for="description">Description:</label>
+                    <label htmlFor="description">Description:</label>
                     <textarea
                         id="description"
                         value={description}
