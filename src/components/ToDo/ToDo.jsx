@@ -19,15 +19,18 @@ const ToDo = () => {
     }
 
     const deleteTask = (id) => {
-        //setTaskList(taskList.filter(task => task.id !== id));
+        dispatch({
+            type: 'deleted',
+            id
+        });
     }
 
     const editTask = (id, name) => {
-        const editedTaskList = taskList.map((task) => {
-            if(task.id === id)return {...task, name}
-            return task;
-        })
-        //setTaskList(editedTaskList);
+        dispatch({
+            type: 'edited',
+            id,
+            name
+        });
     }
 
     const filter_map = {
@@ -37,14 +40,10 @@ const ToDo = () => {
     };  
 
     const toggleTaskCompleted = (id) => {
-        const updatedTasks = taskList.map(task => {
-            if(task.id === id){
-                return {...task, completed: !task.completed}
-            }
-            return task;
+        dispatch({
+            type: 'completed',
+            id
         });
-
-        //setTaskList(updatedTasks);
     }
 
     const taskWord = taskList.length === 1 ? 'task' : 'tasks';

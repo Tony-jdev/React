@@ -87,3 +87,7 @@ textarea {
     border-radius: 3px;
     cursor: pointer;
 }
+
+.active {
+    background-color: #ffffff;
+}
