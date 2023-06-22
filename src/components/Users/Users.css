@@ -1,0 +1,10 @@
+.users a{
+    display: block;
+}
+
+.users{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    width: 80%;
+    margin: 50px auto;
+}
