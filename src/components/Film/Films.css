@@ -1,0 +1,39 @@
+.search-filters-container {
+    margin: 1rem 1rem;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-input {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.filter-select-container {
+    display: flex;
+    align-items: center;
+}
+
+.filter-select {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sort-select {
+    padding: 5px;
+    border-radius: 5px;
+}

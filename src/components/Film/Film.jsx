@@ -8,18 +8,19 @@ const Film = ({ film }) => {
     };
 
     return (
-        <div className='film-card' key={film.id}>
-            <img src={film.image} alt={film.name} />
-            <h4>{film.name} ({film.year})</h4>
+        <div className='film-card' key={film.imdbID}>
+            <img src={film.Poster} alt={film.Title} />
+            <div className="film-info">
+                <h4>{film.Title} ({film.Year})</h4>
+                <button onClick={handleToggleDetails}>
+                    {showDetails ? 'Hide Details' : 'Show Details'}
+                </button>
+            </div>
             {showDetails && (
-                <div>
-                    <p>Director: {film.director}</p>
-                    <p>{film.description}</p>
+                <div className="film-details">
+                    <p>Type: {film.Type}</p>
                 </div>
             )}
-            <button onClick={handleToggleDetails}>
-                {showDetails ? 'Hide Details' : 'Show Details'}
-            </button>
         </div>
     );
 }
