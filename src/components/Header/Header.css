@@ -1,17 +1,39 @@
 header {
-    background-color: #333;
     padding: 20px 0;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header a {
     display: inline-block;
     padding: 10px 20px;
-    color: white;
     text-decoration: none;
 }
 
-header a.active{
+header.dark a.active{
     color:orange;
     background-color: #292929;
+}
+
+header.dark{
+    background-color: #333;
+}
+
+header.dark a{
+    color: white;
+}
+
+header.light{
+    background-color: #ddd;
+}
+
+header.light a{
+    color: #333;
+}
+
+header.light a.active{
+    color:rgb(129, 84, 0);
+    background-color: #e7e7e7;
 }

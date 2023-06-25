@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import "./Users.css";
+import UsersContext from '../../contexts/UsersContext';
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
+    const users = useContext(UsersContext);
     const [search, setSearch] = useSearchParams();
     const [textSearch, setTextSearch] = useState(search.get('q') ?? '');
-    
-    const getUsers = async () => {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const result = await response.json();
-        setUsers(result);
-    }
-
-    useEffect(() => { getUsers(); }, []);
 
     const searchHandler = (e) => {
         setTextSearch(e.target.value);
