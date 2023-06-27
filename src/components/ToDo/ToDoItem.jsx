@@ -1,44 +1,54 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import { Button, Form, Input, Modal } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const ToDoItem = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
-    const [isediting, setEditing] = useState(false);
-    const [newName, setNewName] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const form = useRef(null);
+  const [newName, setNewName] = useState('');
+  const handleOk = () => { setIsModalOpen(false); };
+  const handleCancel = () => { setIsModalOpen(false); };
 
-    const handlerSubmit = () => {
-        if(newName === ''){
-            setNewName('Cannot be empty');
-        }
-        else{
-            editTask(task.id, newName);
-            setNewName('');
-            setEditing(false);
-        }
-    }
+  const showModal = () => {
+    setIsModalOpen(true);
+    setNewName(task.name);
+  };
+  
+  const submitHandler = (values) => {
+    editTask(task.id, values.name);
+    setIsModalOpen(false);
+  };
 
-    const viewTemplate = <div>
-        <input type='checkbox' defaultChecked={task.completed} onChange={() => { toggleTaskCompleted(task.id) }} />
-        <span className={classNames({ completed: task.completed })}>{task.name}</span>
+  return (
+    <li>
+      <div>
+        <input
+          type="checkbox"
+          defaultChecked={task.completed}
+          onChange={() => {
+            toggleTaskCompleted(task.id);
+          }}
+        />
+        <span>{task.name}</span>
         <div>
-            <button onClick={() => setEditing(true)}>Edit</button>
-            <button onClick={() => { deleteTask(task.id) }}>Delete</button>
+          <button onClick={showModal}>Edit</button>
+          <button onClick={() => deleteTask(task.id)}>Delete</button>
         </div>
-    </div>
+      </div>
+      <Modal title="Edit Task" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Form onFinish={submitHandler} ref={form}>
+          <Form.Item name="name" initialValue={newName} rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
 
-    const editingTemplate  = <div>
-        New name for {task.name}:
-        <input type='text' value={newName} onChange={(e) => setNewName(e.target.value)}/>
-        <div>
-            <button onClick={() => setEditing(false)}>Cancel</button>
-            <button onClick={handlerSubmit}>Save</button>
-        </div>
-    </div>
-
-    return (
-        <li>
-            {isediting ? editingTemplate : viewTemplate}
-        </li>
-    );
-}
+          <Form.Item>
+            <Button htmlType="submit" type="primary">
+              Save
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </li>
+  );
+};
 
 export default ToDoItem;

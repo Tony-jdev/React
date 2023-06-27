@@ -91,3 +91,7 @@ textarea {
 .active {
     background-color: #ffffff;
 }
+
+.error{
+    color: red;
+}
