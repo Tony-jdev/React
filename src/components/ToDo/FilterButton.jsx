@@ -11,4 +11,4 @@ const FilterButton = ({ name, setFilter, activeFilter }) => {
     );
 };
 
-export default FilterButton;
+export default React.memo(FilterButton);

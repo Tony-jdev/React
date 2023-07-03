@@ -10,6 +10,7 @@ import UsersContext from './contexts/UsersContext';
 import ThemeProvider from './providers/ThemeProvider';
 import FavoritesProvider from './providers/FavoritesProvider';
 import FavoritesList from './components/Film/FavoritesList';
+import Counters from './components/Counters/Counters';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" element={<ToDo />} />
               <Route path="/counter" element={<Counter />} />
               <Route path="/films" element={<Films />} />
+              <Route path="/counters" element={<Counters />} />
               <Route path="/users" element={<Users />}>
                 <Route path="/users/:id" element={<UserInfo />} />
               </Route>

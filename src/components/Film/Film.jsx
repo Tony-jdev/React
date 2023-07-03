@@ -4,7 +4,7 @@ import { FavoritesContext } from '../../contexts/FavoritesContext';
 const Film = ({ film }) => {
   const [showDetails, setShowDetails] = useState(false);
   const { addToFavorites, removeFromFavorites, favorites } = useContext(FavoritesContext);
-
+console.log("Rendered");
   const handleToggleDetails = () => {
     setShowDetails(!showDetails);
   };
@@ -40,4 +40,4 @@ const Film = ({ film }) => {
   );
 }
 
-export default Film;
+export default React.memo(Film);

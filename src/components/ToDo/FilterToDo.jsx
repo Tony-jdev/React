@@ -18,4 +18,4 @@ const FilterToDo = ({ filter_map, filter, setFilter }) => {
     );
 };
 
-export default FilterToDo;
+export default React.memo(FilterToDo);

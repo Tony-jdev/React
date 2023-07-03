@@ -51,4 +51,4 @@ const ToDoItem = ({ task, toggleTaskCompleted, deleteTask, editTask }) => {
   );
 };
 
-export default ToDoItem;
+export default React.memo(ToDoItem);

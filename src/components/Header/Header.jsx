@@ -18,6 +18,7 @@
                 <NavLink to='/counter'>Counter</NavLink>
                 <NavLink to='/users'>Users</NavLink>
                 <NavLink to='/films'>Films</NavLink>
+                <NavLink to='/counters'>Counters</NavLink>
 
                 <div className="favorites">
                     <FavoriteBorderIcon className="favorite-icon" />
